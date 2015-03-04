@@ -9,7 +9,7 @@ data <- fread("household_power_consumption.txt", sep=";", na.strings = "?", colC
 subdata <- data[Date %in% c('1/2/2007','2/2/2007')]
 # the original data can be removed from the memory
 rm(data)
-# The content in columns Data and Time is a charachter type. Add an extra column 'DateTime' to the table as a result of concatenation
+# The content in columns Data and Time is a characher type. Add an extra column 'DateTime' to the table as a result of concatenation
 # of columns Date and Time and converting it into R's datetime field
 subdata[, DateTime:=as.POSIXct(strptime(paste(Date,Time), "%d/%m/%Y %H:%M:%S"))]
 # set png device
